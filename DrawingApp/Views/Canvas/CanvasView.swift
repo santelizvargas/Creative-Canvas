@@ -13,7 +13,6 @@ struct CanvasView: View {
     @State private var selectedColor: Color = .red
     
     private typealias Constants = CanvasConstants
-    private let colors: [Color] = [.red, .blue, .black, .orange, .green, .purple, .brown]
     
     var body: some View {
         VStack {
@@ -36,7 +35,7 @@ struct CanvasView: View {
     private var headerView: some View {
         VStack {
             HStack(spacing: Constants.buttonSpacing) {
-                ForEach(colors, id: \.self) { color in
+                ForEach(Constants.Drawing.colors, id: \.self) { color in
                     colorButton(color)
                 }
                 
@@ -87,13 +86,16 @@ struct CanvasView: View {
         } label: {
             customImage(selectedColor == color ? .colorFill : .color)
                 .resizable()
-                .frame(width: Constants.ColorBtn.size, height: Constants.ColorBtn.size)
+                .frame(width: Constants.Button.size, height: Constants.Button.size)
                 .foregroundStyle(color)
                 .background {
-                    Circle().strokeBorder(color, lineWidth: Constants.ColorBtn.lineWidth)
-                        .scaleEffect(selectedColor == color ? Constants.ColorBtn.ScaleEffect.max : Constants.ColorBtn.ScaleEffect.min)
-                        .opacity(selectedColor == color ? Constants.ColorBtn.Opacity.max : Constants.ColorBtn.Opacity.min)
-                        .animation(.bouncy(duration: Constants.ColorBtn.Animation.duration, extraBounce: Constants.ColorBtn.Animation.extraBounce), value: selectedColor)
+                    Circle()
+                        .strokeBorder(color, lineWidth: Constants.Button.lineWidth)
+                        .scaleEffect(selectedColor == color ? Constants.Button.ScaleEffect.max : Constants.Button.ScaleEffect.min)
+                        .opacity(selectedColor == color ? Constants.Button.Opacity.max : Constants.Button.Opacity.min)
+                        .animation(.bouncy(duration: Constants.Button.Animation.duration,
+                                           extraBounce: Constants.Button.Animation.extraBounce),
+                                   value: selectedColor)
                 }
         }
     }

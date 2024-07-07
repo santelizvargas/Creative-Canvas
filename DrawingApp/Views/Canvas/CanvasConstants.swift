@@ -5,7 +5,7 @@
 //  Created by Steven Santeliz on 1/6/24.
 //
 
-import Foundation
+import SwiftUI
 
 enum CanvasConstants {
     static let buttonSpacing: CGFloat = 12
@@ -23,7 +23,15 @@ enum CanvasConstants {
         static let yPosition: CGFloat = 15
     }
     
-    enum ColorBtn {
+    // MARK: - Drawing colors
+    
+    enum Drawing {
+        static let colors: [Color] = [.red, .blue, .black, .orange, .green, .purple, .brown]
+    }
+    
+    // MARK: - Button constants
+    
+    enum Button {
         static let size: CGFloat = 25
         static let lineWidth: CGFloat = 2
         
