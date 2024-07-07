@@ -11,6 +11,7 @@ enum CanvasConstants {
     static let buttonSpacing: CGFloat = 12
     static let defaultLineSize: CGFloat = 5
     static let oneValue: Int = 1
+    static let drawingColors: [Color] = [.red, .blue, .black, .orange, .green, .purple, .brown]
     
     enum Slider {
         static let minValue: CGFloat = 1
@@ -23,15 +24,9 @@ enum CanvasConstants {
         static let yPosition: CGFloat = 15
     }
     
-    // MARK: - Drawing colors
-    
-    enum Drawing {
-        static let colors: [Color] = [.red, .blue, .black, .orange, .green, .purple, .brown]
-    }
-    
     // MARK: - Button constants
     
-    enum Button {
+    enum ColorButton {
         static let size: CGFloat = 25
         static let lineWidth: CGFloat = 2
         
