@@ -35,7 +35,7 @@ struct CanvasView: View {
     private var headerView: some View {
         VStack {
             HStack(spacing: Constants.buttonSpacing) {
-                ForEach(Constants.Drawing.colors, id: \.self) { color in
+                ForEach(Constants.drawingColors, id: \.self) { color in
                     colorButton(color)
                 }
                 
@@ -86,15 +86,15 @@ struct CanvasView: View {
         } label: {
             customImage(selectedColor == color ? .colorFill : .color)
                 .resizable()
-                .frame(width: Constants.Button.size, height: Constants.Button.size)
+                .frame(width: Constants.ColorButton.size, height: Constants.ColorButton.size)
                 .foregroundStyle(color)
                 .background {
                     Circle()
-                        .strokeBorder(color, lineWidth: Constants.Button.lineWidth)
-                        .scaleEffect(selectedColor == color ? Constants.Button.ScaleEffect.max : Constants.Button.ScaleEffect.min)
-                        .opacity(selectedColor == color ? Constants.Button.Opacity.max : Constants.Button.Opacity.min)
-                        .animation(.bouncy(duration: Constants.Button.Animation.duration,
-                                           extraBounce: Constants.Button.Animation.extraBounce),
+                        .strokeBorder(color, lineWidth: Constants.ColorButton.lineWidth)
+                        .scaleEffect(selectedColor == color ? Constants.ColorButton.ScaleEffect.max : Constants.ColorButton.ScaleEffect.min)
+                        .opacity(selectedColor == color ? Constants.ColorButton.Opacity.max : Constants.ColorButton.Opacity.min)
+                        .animation(.bouncy(duration: Constants.ColorButton.Animation.duration,
+                                           extraBounce: Constants.ColorButton.Animation.extraBounce),
                                    value: selectedColor)
                 }
         }
