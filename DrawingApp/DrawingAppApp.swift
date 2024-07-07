@@ -12,6 +12,7 @@ struct DrawingAppApp: App {
     var body: some Scene {
         WindowGroup {
             CanvasView()
+                .preferredColorScheme(.light)
         }
     }
 }
